@@ -1,0 +1,137 @@
+<!--
+                                DevDetective - GitHub Profile Search and Theme Switcher
+
+    Overview:
+    DevDetective is a web application designed to search GitHub user profiles and provide a detailed view of their information. The application also includes a light/dark mode toggle feature for a customizable user experience.
+
+    Features:
+    1. GitHub Profile Search : Users can search for GitHub profiles by entering a username into the search bar. The application fetches and displays profile details such as the user's name, bio, repositories, followers, and more.
+    
+    2. Profile Information Display  : The application displays a comprehensive profile summary including the user's avatar, name, bio, repository count, followers, following, and other relevant information. It also shows additional details such as location, website, Twitter handle, and company.
+
+    3. Light/Dark Mode Toggle  : Users can switch between light and dark themes using the toggle button. This feature enhances readability and allows users to customize their experience based on their preference.
+
+    How It Works:
+    - The user inputs a GitHub username into the search bar and clicks the "Search" button.
+    - The application makes a request to the GitHub API to retrieve the profile data.
+    - The profile information is then dynamically updated and displayed on the page.
+    - Users can toggle between light and dark modes, which adjusts the appearance of the application.
+
+    Technologies Used:
+    - HTML : Defines the structure of the application.
+    - CSS : Styles the application, including layout and responsive design. Handles light/dark mode styling.
+    - JavaScript : Manages interactivity, API requests, and dynamic content updates.
+
+    Assets:
+    - Icons and images used for the profile and theme toggles are stored in the `assets` folder.
+
+    Notes:
+    - Ensure you have the correct API permissions and handle errors gracefully when fetching data.
+    - The application uses external fonts and icons, which are linked via CDN and included in the project directory.
+
+    © 2024 DevDetective. All rights reserved.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevDetective - CodeHelp</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <h1 class="title">DevDetective</h1>
+            <div id="btn-mode">
+                <p id="mode-text">DARK</p>
+                <div class="icon-container"><img id="mode-icon" src="./assets/images/moon-icon.svg" alt=""></div>
+            </div>
+        </header>
+
+        <main>
+            <div id="app">
+
+                <div class="searchbar-container active">
+                    <input type="search" name="user-input" id="input" placeholder="Enter a GitHub username..." required>
+                    <div class="error">
+                        <p id="no-results">no search results</p>
+                    </div>
+                    <button class="btn-search" id="submit">Search</button>
+                </div>
+
+                <div class="profile-container">
+                    <div class="profile-content">
+                        <div class="profile-header">
+                            <img id="avatar" src="#" alt="">
+                            <div class="profile-info-wrapper">
+                                <div class="profile-name">
+                                    <h2 id="name"></h2>
+                                    <a href="#" target="_blank" rel="noopener noreferrer" id="user"></a>
+                                </div>
+                                <p id="date"></p>
+                            </div>
+                        </div>
+                        
+                        <p id="bio"></p>
+
+                        <div class="profile-stats-wrapper">
+                            <div class="profile-stat">
+                                <p class="stat-title">Repos</p>
+                                <p id="repos" class="stat-value"></p>
+                            </div>
+                            <div class="profile-stat">
+                                <p class="stat-title">Followers</p>
+                                <p id="followers" class="stat-value"></p>
+                            </div>
+                            <div class="profile-stat">
+                                <p class="stat-title">Following</p>
+                                <p id="following" class="stat-value"></p>
+                            </div>
+                        </div>
+
+                        <div class="profile-bottom-wrapper">
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img src="./assets/images/location-icon.svg" alt=""></div>
+                                <p id="location"></p>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img src="./assets/images/website-icon.svg" alt=""></div>
+                                <a href="#" id="page"></a>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img src="./assets/images/twitter-icon.svg" alt=""></div>
+                                <a href="#" id="twitter"></a>
+                            </div>
+                            <div class="profile-info">
+                                <div class="bottom-icons"><img src="./assets/images/company-icon.svg" alt=""></div>
+                                <p id="company"></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

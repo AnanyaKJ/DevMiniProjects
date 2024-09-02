@@ -1,0 +1,153 @@
+<!--
+                                                                Weather App
+
+Overview:
+This Weather App provides users with real-time weather information. Users can view the weather for their current location or search for weather in different cities. The app offers a user-friendly interface for accessing weather details including temperature, wind speed, humidity, and cloudiness.
+
+Features:
+1. Tab Navigation: Users can switch between viewing weather for their current location and searching for weather in other cities. Two tabs are provided for easy navigation.
+   
+2. Grant Location Access: A section prompts users to grant location access so that the app can automatically fetch weather data for their current location. This includes a button to request location access and display relevant weather information.
+
+3. Search Form: Users can search for weather by entering a city name. The search form includes an input field for the city name and a button to initiate the search.
+
+4. Loading Screen: A loading animation is displayed while the app fetches weather data, providing visual feedback to the user during data retrieval.
+
+5. Weather Information Display: After fetching data, the app shows:
+   - City name and country flag
+   - Weather description
+   - Weather icon
+   - Temperature
+   - Wind speed
+   - Humidity
+   - Cloudiness
+   
+   This information is organized in a user-friendly layout with corresponding icons for parameters such as wind speed, humidity, and cloudiness.
+
+How It Works:
+- Users grant location access or enter a city name in the search form.
+- The app fetches weather data from an external API based on the provided or requested location.
+- A loading screen appears while the data is being retrieved.
+- Once data is available, it is displayed in the designated weather information area, showing all relevant details.
+
+Technologies Used:
+- HTML: Structures the content and user interface elements of the application.
+- CSS: Styles the application, including layout, colors, and visual presentation.
+- JavaScript: Handles the logic for fetching weather data, handling user interactions, and updating the UI based on the retrieved data.
+
+Assets:
+- Icons and images used in the application, such as the location icon, search icon, loading animation, and parameter icons, are stored in the `assets` folder.
+
+Notes:
+- Ensure the JavaScript file (`index.js`) includes proper handling for location access requests and search functionality.
+- Verify that weather data is accurately fetched and displayed for both location-based and search-based queries.
+- The app should provide a seamless user experience with responsive design and clear visual feedback.
+
+© 2024 Weather App. All rights reserved.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <h1>Weather App</h1>
+
+        <div class="tab-container">
+            <p class="tab" data-userWeather>Your Weather</p>
+            <p class="tab" data-searchWeather>Search Weather</p>
+        </div>
+
+        <div class="weather-container">
+
+            <!-- grant location container-->
+            <div class="sub-container grant-location-container">
+                <img src="./assets/location.png" width="80" height="80" loading="lazy">
+                <p>Grant Location Access</p>
+                <p>Allow Access to get weather Information</p>
+                <button class="btn" data-grantAccess>Grant Access</button>
+            </div>
+
+            <!-- search form -> form-container-->
+            <form class="form-container" data-searchForm>
+                <input placeholder="Search for City..." data-searchInput>
+                <button class="btn" type="submit">
+                    <img src="./assets/search.png"  width="20" height="20" loading="lazy">
+                </button>
+            </form>
+
+            <!--- loading screen container -->
+            <div class="sub-container loading-container">
+                <img src="./assets/loading.gif" width="150" height="150">
+                <p>Loading</p>
+            </div>
+
+            <!-- show weather info -->
+            <div class="sub-container user-info-container">
+
+                <!--city name and Flag-->
+                <div class="name">
+                    <p data-cityName></p>
+                    <img data-countryIcon>
+                </div>
+
+                <!-- weather descriptuion-->
+                <p data-weatherDesc></p>
+                <!--weather Icon-->
+                <img data-weatherIcon>
+                <!--temperature-->
+                <p data-temp></p>
+
+                <!--3 cards - parameters-->
+                <div class="parameter-container">
+
+                    <!--card 1-->
+                    <div class="parameter">
+                        <img src="./assets/wind.png" >
+                        <p>windspeed</p>
+                        <p data-windspeed></p>
+                    </div>
+
+                    <!--card 2-->
+                    <div class="parameter">
+                        <img src="./assets/humidity.png" >
+                        <p>humidity</p>
+                        <p data-humidity></p>
+                    </div>
+
+                    <!--card 3-->
+                    <div class="parameter">
+                        <img src="./assets/cloud.png" >
+                        <p>Clouds</p>
+                        <p data-cloudiness></p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>

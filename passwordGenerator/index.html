@@ -1,0 +1,121 @@
+<!--
+                                                             Password Generator
+
+    Overview:
+    This Password Generator application allows users to create strong and secure passwords based on specified criteria. Users can customize the password's length and choose which character types (uppercase letters, lowercase letters, numbers, and symbols) to include in the generated password.
+
+    Features:
+    1.  Password Length Control : Users can adjust the desired length of the password using a slider. The length can range from 1 to 20 characters.
+    
+    2. Character Type Selection : Users can select which types of characters to include in the password by checking corresponding checkboxes. Options include:
+       - Uppercase letters
+       - Lowercase letters
+       - Numbers
+       - Symbols
+
+    3. Strength Indicator : A visual strength indicator provides feedback on the complexity of the generated password based on the selected criteria. It helps users gauge the strength of their password.
+
+    4. Password Display and Copy Functionality : The generated password is displayed in an input field, and users can copy it to the clipboard using a copy button. The button shows a tooltip message to confirm when the password has been copied.
+
+    How It Works:
+    - Users adjust the password length using the slider and select the desired character types using checkboxes.
+    - The "Generate Password" button triggers the generation of a password based on the current settings.
+    - The generated password is displayed in the designated field, and users can copy it using the provided button.
+    - The application updates the strength indicator to reflect the complexity of the generated password.
+
+    Technologies Used:
+    - HTML : Structures the user interface and defines the elements for interaction.
+    - CSS : Styles the application, including layout, colors, and responsiveness.
+    - JavaScript : Handles the logic for password generation, length adjustment, character type selection, and strength calculation.
+
+    Assets:
+    - Icons and images used in the application (e.g., copy button icon) are stored in the `assets` folder.
+
+    Notes:
+    - Ensure that the password generation logic in `script.js` accounts for all selected criteria and generates secure passwords.
+    - The strength indicator's color changes based on the complexity of the password, providing a quick visual cue to users.
+
+    © 2024 Password Generator. All rights reserved.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password_Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>Password Generator</h1>
+
+        <div class="display-container">
+
+            <input readonly placeholder="Password" class="display" data-passwordDisplay>
+
+            <button class="copyBtn" data-copy>
+                <span class="tooltip" data-copyMsg></span>
+                <img src="./assets/copy.svg" alt="copy" width="23" height="23">
+            </button>
+
+        </div>
+
+
+        <div class="input-container">
+
+            <!--password length section-->
+            <div class="length-container">
+                <p>Password Length</p>
+                <p data-lengthNumber>0</p>
+            </div>
+            
+            <!--slider-->
+            <input type="range" min="1" max="20" class="slider" step="1" data-lengthSlider>
+
+            <!-- checkboxes-->
+            <div class="check">
+                <input type="checkbox" id="uppercase">
+                <label for="uppercase">Includes Uppercase letters</label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="lowercase">
+                <label for="lowercase">Includes Lowercase letters</label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="numbers">
+                <label for="numbers">Includes Numbers </label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" id="symbols">
+                <label for="symbols">Includes Symbols </label>
+            </div>
+
+            <!-- strength section-->
+            <div class="strength-container">
+                <p>Strength</p>
+                <div class="indicator" data-indicator></div>
+            </div>
+
+            <!-- generate password-->
+            <button class="generateButton">Generate Password</button>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
